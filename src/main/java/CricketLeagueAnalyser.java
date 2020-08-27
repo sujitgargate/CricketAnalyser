@@ -53,4 +53,10 @@ public class CricketLeagueAnalyser {
       return new Gson().toJson(IPLDAO);
    }
 
+   public String getFoursOfPlayerSortedData() {
+      Comparator<CricketDataDAO> censusComparator = Comparator.comparing(leagueFact -> leagueFact.fours);
+      List<CricketDataDAO> IPLDAO = cricketDatatMap.values().stream().collect(Collectors.toList());
+      this.sortData(IPLDAO, censusComparator);
+      return new Gson().toJson(IPLDAO);
+   }
 }

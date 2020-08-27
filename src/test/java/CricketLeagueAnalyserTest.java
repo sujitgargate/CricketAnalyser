@@ -49,4 +49,17 @@ public class CricketLeagueAnalyserTest {
          Assert.assertEquals(CricketLeagueAnalyserException.ExceptionType.CSV_FILE_PROBLEM, e.type);
       }
    }
+
+   @Test
+   public void givenCricketData_WhenSortedOnFours_ShouldReturnSortedResult() {
+      try {
+         CricketLeagueAnalyser cricketLeagueAnalyser = new CricketLeagueAnalyser();
+         cricketLeagueAnalyser.loadDataFromSheet(CRICKET_CSV_FILE_PATH);
+         String sortedcricketData = cricketLeagueAnalyser.getFoursOfPlayerSortedData();
+         IPLRunsCSV[] iplMostRunCSV = new Gson().fromJson(sortedcricketData, IPLRunsCSV[].class);
+         Assert.assertEquals("Shikhar Dhawan", iplMostRunCSV[0].playerName);
+      } catch (CricketLeagueAnalyserException e) {
+         Assert.assertEquals(CricketLeagueAnalyserException.ExceptionType.CSV_FILE_PROBLEM, e.type);
+      }
+   }
 }
