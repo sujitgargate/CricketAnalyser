@@ -68,4 +68,14 @@ public class CricketLeagueAnalyser {
       this.sortData(IPLDAO, censusComparator);
       return new Gson().toJson(IPLDAO);
    }
+
+   //Finds Best Strike Rate With Good Average Of Batting
+   public String getGoodAverageWithStrikeRateSortedCricketData() {
+      List<CricketDataDAO> IPLDAO = cricketDatatMap.values().stream().collect(Collectors.toList());
+      Comparator<CricketDataDAO> avgCompare = Comparator.comparing(leagueFact -> leagueFact.avgRun);
+      Comparator<CricketDataDAO> strikeRateCompare = Comparator.comparing(leagueFact -> leagueFact.strikeRate);
+      this.sortData(IPLDAO, strikeRateCompare.thenComparing(avgCompare));
+      String sortedStateCensusJson = new Gson().toJson(IPLDAO);
+      return sortedStateCensusJson;
+   }
 }

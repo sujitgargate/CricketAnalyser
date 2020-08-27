@@ -78,4 +78,13 @@ public class CricketLeagueAnalyserTest {
       writer.close();
       Assert.assertEquals("Ishant Sharma", iplMostRunCSV[0].playerName);
    }
+
+   @Test
+   public void givenCricketData_WhenSortedOnGoodAverageWithBestStrikeRate_ShouldReturnSortedResult() throws CricketLeagueAnalyserException {
+      CricketLeagueAnalyser cricketLeagueAnalyser = new CricketLeagueAnalyser();
+      cricketLeagueAnalyser.loadDataFromSheet(CRICKET_CSV_FILE_PATH);
+      String sortedFactSheetData = cricketLeagueAnalyser.getGoodAverageWithStrikeRateSortedCricketData();
+      IPLRunsCSV[] iplMostRunCSV =  new Gson().fromJson(sortedFactSheetData, IPLRunsCSV[].class);
+      Assert.assertEquals("Ishant Sharma", iplMostRunCSV[0].playerName);
+   }
 }
