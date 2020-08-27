@@ -10,6 +10,9 @@ public class IPLRunsCSV {
    @CsvBindByName(column = "SR", required = true)
    public double strikeRate;
 
+   @CsvBindByName(column = "6s", required = true)
+   public int sixers;
+
    @Override
    public String toString() {
       return "IPLRunsCSV{" +

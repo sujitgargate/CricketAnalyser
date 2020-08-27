@@ -44,4 +44,13 @@ public class CricketLeagueAnalyser {
          }
       }
    }
+
+   //Finds Striking Rate Of Batting For Player
+   public String getSixerOfPlayerSortedData() {
+      Comparator<CricketDataDAO> censusComparator = Comparator.comparing(leagueFact -> leagueFact.sixers);
+      List<CricketDataDAO> IPLDAO = cricketDatatMap.values().stream().collect(Collectors.toList());
+      this.sortData(IPLDAO, censusComparator);
+      return new Gson().toJson(IPLDAO);
+   }
+
 }
