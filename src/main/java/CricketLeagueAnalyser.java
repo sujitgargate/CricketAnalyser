@@ -17,7 +17,7 @@ public class CricketLeagueAnalyser {
 
    //Finds Avg Of Batting For Player
    public String getBattingAvgSortedData() {
-      Comparator<CricketDataDAO> censusComparator = Comparator.comparing(leagueFact -> leagueFact.avgRun);
+      Comparator<CricketDataDAO> censusComparator = Comparator.comparing(dataCompare -> dataCompare.avgRun);
       List<CricketDataDAO> IPLDAO = cricketDatatMap.values().stream().collect(Collectors.toList());
       this.sortData(IPLDAO, censusComparator);
       return new Gson().toJson(IPLDAO);
@@ -25,7 +25,7 @@ public class CricketLeagueAnalyser {
 
    //Finds Striking Rate Of Batting For Player
    public String getStrikingRateSortedData() {
-      Comparator<CricketDataDAO> censusComparator = Comparator.comparing(leagueFact -> leagueFact.strikeRate);
+      Comparator<CricketDataDAO> censusComparator = Comparator.comparing(dataCompare -> dataCompare.strikeRate);
       List<CricketDataDAO> IPLDAO = cricketDatatMap.values().stream().collect(Collectors.toList());
       this.sortData(IPLDAO, censusComparator);
       return new Gson().toJson(IPLDAO);
@@ -45,16 +45,25 @@ public class CricketLeagueAnalyser {
       }
    }
 
-   //Finds Striking Rate Of Batting For Player
+   //Finds Max Sixes Hit By Player
    public String getSixerOfPlayerSortedData() {
-      Comparator<CricketDataDAO> censusComparator = Comparator.comparing(leagueFact -> leagueFact.sixers);
+      Comparator<CricketDataDAO> censusComparator = Comparator.comparing(dataCompare -> dataCompare.sixers);
       List<CricketDataDAO> IPLDAO = cricketDatatMap.values().stream().collect(Collectors.toList());
       this.sortData(IPLDAO, censusComparator);
       return new Gson().toJson(IPLDAO);
    }
 
+   //Finds Max Fours Hit By Player
    public String getFoursOfPlayerSortedData() {
-      Comparator<CricketDataDAO> censusComparator = Comparator.comparing(leagueFact -> leagueFact.fours);
+      Comparator<CricketDataDAO> censusComparator = Comparator.comparing(dataCompare -> dataCompare.fours);
+      List<CricketDataDAO> IPLDAO = cricketDatatMap.values().stream().collect(Collectors.toList());
+      this.sortData(IPLDAO, censusComparator);
+      return new Gson().toJson(IPLDAO);
+   }
+
+   //Finds Max Fours And Sixes With High Strike Rate Hit By Playre
+   public String getMaxStrikeRateFoursSixesOfPlayerSortedData() {
+      Comparator<CricketDataDAO> censusComparator = Comparator.comparing(dataCompare -> dataCompare.strikeRate);
       List<CricketDataDAO> IPLDAO = cricketDatatMap.values().stream().collect(Collectors.toList());
       this.sortData(IPLDAO, censusComparator);
       return new Gson().toJson(IPLDAO);
