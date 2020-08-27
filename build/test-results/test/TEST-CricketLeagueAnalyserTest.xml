@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CricketLeagueAnalyserTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2020-08-27T16:11:05" hostname="SUJITGARGATE" time="119.986">
+  <properties/>
+  <testcase name="givenRunsData_WhenShortedOnBattingAverage_ShouldReturnSortedResult" classname="CricketLeagueAnalyserTest" time="119.986">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
