@@ -16,6 +16,9 @@ public class IPLRunsCSV {
    @CsvBindByName(column = "4s", required = true)
    public int fours;
 
+   @CsvBindByName(column = "Runs", required = true)
+   public double playerRuns;
+
    @Override
    public String toString() {
       return "IPLRunsCSV{" +
@@ -24,6 +27,7 @@ public class IPLRunsCSV {
               ", SR='" + strikeRate + '\'' +
               ", 6s='" + sixers + '\'' +
               ", 4s='" + fours + '\'' +
+              ", Runs='" + playerRuns + '\'' +
               '}';
    }
 }
