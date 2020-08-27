@@ -1,3 +1,3 @@
-public class CricketLeagueAnalyserException {
+public class CricketLeagueAnalyserException extends Throwable {
 
 }
