@@ -26,10 +26,14 @@ public class CricketLeagueAnalyserTest {
 
    @Test
    public void givenMostRunFactSheet_WhenShortedOnStrikingRates_ShouldReturnSortedResult() throws CricketLeagueAnalyserException {
-      CricketLeagueAnalyser cricketLeagueAnalyser = new CricketLeagueAnalyser();
-      cricketLeagueAnalyser.loadDataFromSheet(CRICKET_CSV_FILE_PATH);
-      String sortedcricketData = cricketLeagueAnalyser.getStrikingRateSortedData();
-      IPLRunsCSV[] iplMostRunCSV =  new Gson().fromJson(sortedcricketData, IPLRunsCSV[].class);
-      Assert.assertEquals("Ishant Sharma", iplMostRunCSV[0].playerName);
+      try {
+         CricketLeagueAnalyser cricketLeagueAnalyser = new CricketLeagueAnalyser();
+         cricketLeagueAnalyser.loadDataFromSheet(CRICKET_CSV_FILE_PATH);
+         String sortedcricketData = cricketLeagueAnalyser.getStrikingRateSortedData();
+         IPLRunsCSV[] iplMostRunCSV = new Gson().fromJson(sortedcricketData, IPLRunsCSV[].class);
+         Assert.assertEquals("Ishant Sharma", iplMostRunCSV[0].playerName);
+      } catch (CricketLeagueAnalyserException e) {
+         Assert.assertEquals(CricketLeagueAnalyserException.ExceptionType.CSV_FILE_PROBLEM, e.type);
+      }
    }
 }
