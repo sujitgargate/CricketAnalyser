@@ -26,8 +26,7 @@ public class IPLDataLoader {
                       .forEach(censusCSV -> censusStateMap.put(censusCSV.playerName, new CricketDataDAO(censusCSV)));
          return censusStateMap;
       } catch (IOException e) {
-         throw new CricketLeagueAnalyserException(e.getMessage(),
-                 CricketLeagueAnalyserException.ExceptionType.CSV_FILE_PROBLEM);
+         throw new CricketLeagueAnalyserException(e.getMessage(),CricketLeagueAnalyserException.ExceptionType.CSV_FILE_PROBLEM);
       } catch (CSVBuilderException e) {
          throw new CricketLeagueAnalyserException(e.getMessage(), e.type.name());
       }

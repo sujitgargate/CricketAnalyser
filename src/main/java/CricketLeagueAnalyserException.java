@@ -2,7 +2,7 @@ public class CricketLeagueAnalyserException extends Throwable {
 
 
    public enum ExceptionType {
-      CSV_FILE_PROBLEM, WRONG_HEADER_OR_WRONG_DELIMITER_OR_WRONG_FILE_TYPE
+      CSV_FILE_PROBLEM
    }
 
    public ExceptionType type;

@@ -18,9 +18,17 @@ public class CricketLeagueAnalyser {
    //Finds Avg Of Batting For Player
    public String getBattingAvgSortedData() {
       Comparator<CricketDataDAO> censusComparator = Comparator.comparing(leagueFact -> leagueFact.avgRun);
-      List<CricketDataDAO> factSheetDAO = cricketDatatMap.values().stream().collect(Collectors.toList());
-      this.sortData(factSheetDAO, censusComparator);
-      return new Gson().toJson(factSheetDAO);
+      List<CricketDataDAO> IPLDAO = cricketDatatMap.values().stream().collect(Collectors.toList());
+      this.sortData(IPLDAO, censusComparator);
+      return new Gson().toJson(IPLDAO);
+   }
+
+   //Finds Striking Rate Of Batting For Player
+   public String getStrikingRateSortedData() {
+      Comparator<CricketDataDAO> censusComparator = Comparator.comparing(leagueFact -> leagueFact.strikeRate);
+      List<CricketDataDAO> IPLDAO = cricketDatatMap.values().stream().collect(Collectors.toList());
+      this.sortData(IPLDAO, censusComparator);
+      return new Gson().toJson(IPLDAO);
    }
 
    //Bubble Sorting For Data

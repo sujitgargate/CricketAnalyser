@@ -7,11 +7,15 @@ public class IPLRunsCSV {
    @CsvBindByName(column = "Avg", required = true)
    public double avgRun;
 
+   @CsvBindByName(column = "SR", required = true)
+   public double strikeRate;
+
    @Override
    public String toString() {
       return "IPLRunsCSV{" +
               "PLAYER='" + playerName + '\'' +
               ", Avg='" + avgRun + '\'' +
+              ", SR='" + strikeRate + '\'' +
               '}';
    }
 }
