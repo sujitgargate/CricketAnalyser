@@ -1,17 +1,30 @@
 import com.google.gson.Gson;
+import csvbuilder.CSVBuilderException;
+import csvbuilder.CSVBuilderFactory;
+import csvbuilder.ICSVBuilder;
 
+import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 public class CricketLeagueAnalyser {
 
    Map<String, CricketDataDAO> cricketDatatMap;
 
+   public enum CricketPlayer {
+      BATSMAN, BOWLER
+   }
+
    //Loads Data From Sheet
-   public Map<String, CricketDataDAO> loadDataFromSheet(String csvFilePath) throws CricketLeagueAnalyserException {
-      cricketDatatMap = new IPLDataLoader().loadCricketData(IPLRunsCSV.class, csvFilePath);
+   public <E> Map<String, CricketDataDAO> loadDataFromSheet(CricketPlayer cricketPlayer, String csvFilePath) throws CricketLeagueAnalyserException {
+      cricketDatatMap = new IPLDataLoader().leagueLoaderCricketData(cricketPlayer, csvFilePath);
       return cricketDatatMap;
    }
 

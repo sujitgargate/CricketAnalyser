@@ -27,7 +27,6 @@ public class IPLRunsCSV {
               ", SR='" + strikeRate + '\'' +
               ", 6s='" + sixers + '\'' +
               ", 4s='" + fours + '\'' +
-              ", Runs='" + playerRuns + '\'' +
               '}';
    }
 }
