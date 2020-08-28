@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CricketLeagueAnalyserTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-08-28T04:00:27" hostname="SUJITGARGATE" time="1.458">
+<testsuite name="CricketLeagueAnalyserTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-08-28T04:08:55" hostname="SUJITGARGATE" time="1.077">
   <properties/>
-  <testcase name="givenMostRunFactSheet_WhenShortedOnBestStrikeRateWith4wAnd5w_ShouldReturnSortedResult" classname="CricketLeagueAnalyserTest" time="1.458">
-    <failure message="org.junit.ComparisonFailure: expected:&lt;Lasith []alinga&gt; but was:&lt;Lasith [M]alinga&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;Lasith []alinga&gt; but was:&lt;Lasith [M]alinga&gt;
+  <testcase name="givenCricketData_WhenSortedOnBestStrikeRateWithBestBowlingAvgouldReturnSortedResult" classname="CricketLeagueAnalyserTest" time="1.077">
+    <failure message="org.junit.ComparisonFailure: expected:&lt;[Lasith Malinga]&gt; but was:&lt;[Krishnappa Gowtham]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[Lasith Malinga]&gt; but was:&lt;[Krishnappa Gowtham]&gt;
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
-	at CricketLeagueAnalyserTest.givenMostRunFactSheet_WhenShortedOnBestStrikeRateWith4wAnd5w_ShouldReturnSortedResult(CricketLeagueAnalyserTest.java:134)
+	at CricketLeagueAnalyserTest.givenCricketData_WhenSortedOnBestStrikeRateWithBestBowlingAvgouldReturnSortedResult(CricketLeagueAnalyserTest.java:143)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

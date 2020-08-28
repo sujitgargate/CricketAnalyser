@@ -99,7 +99,7 @@ public class CricketLeagueAnalyserTest {
    }
 
    @Test
-   public void givenMostRunFactSheet_WhenShortedOnBestBowlingAverage_ShouldReturnSortedResult() throws CricketLeagueAnalyserException {
+   public void givenCricketData_WhenShortedOnBestBowlingAverage_ShouldReturnSortedResult() throws CricketLeagueAnalyserException {
       CricketLeagueAnalyser cricketLeagueAnalyser = new CricketLeagueAnalyser();
       cricketLeagueAnalyser.loadDataFromSheet(CricketLeagueAnalyser.CricketPlayer.BOWLER, CRICKET_WICKETS_CSV_FILE_PATH);
       String sortedcricketData = cricketLeagueAnalyser.getBowlingAverageSortedCricketData();
@@ -108,7 +108,7 @@ public class CricketLeagueAnalyserTest {
    }
 
    @Test
-   public void givenMostRunFactSheet_WhenShortedOnBestBowlerStrikeRate_ShouldReturnSortedResult() throws CricketLeagueAnalyserException {
+   public void givenCricketData_WhenShortedOnBestBowlerStrikeRate_ShouldReturnSortedResult() throws CricketLeagueAnalyserException {
       CricketLeagueAnalyser cricketLeagueAnalyser = new CricketLeagueAnalyser();
       cricketLeagueAnalyser.loadDataFromSheet(CricketLeagueAnalyser.CricketPlayer.BOWLER, CRICKET_WICKETS_CSV_FILE_PATH);
       String sortedcricketData = cricketLeagueAnalyser.getBowlerStrikeRateSortedCricketData();
@@ -117,7 +117,7 @@ public class CricketLeagueAnalyserTest {
    }
 
    @Test
-   public void givenMostRunFactSheet_WhenShortedOnBestEconomyRate_ShouldReturnSortedResult() throws CricketLeagueAnalyserException {
+   public void givenCricketData_WhenShortedOnBestEconomyRate_ShouldReturnSortedResult() throws CricketLeagueAnalyserException {
       CricketLeagueAnalyser cricketLeagueAnalyser = new CricketLeagueAnalyser();
       cricketLeagueAnalyser.loadDataFromSheet(CricketLeagueAnalyser.CricketPlayer.BOWLER, CRICKET_WICKETS_CSV_FILE_PATH);
       String sortedcricketData = cricketLeagueAnalyser.getEconomyRateSortedCricketData();
@@ -126,11 +126,20 @@ public class CricketLeagueAnalyserTest {
    }
 
    @Test
-   public void givenMostRunFactSheet_WhenShortedOnBestStrikeRateWith4wAnd5w_ShouldReturnSortedResult() throws CricketLeagueAnalyserException {
+   public void givenCricketData_WhenSortedOnBestStrikeRateWith4wAnd5w_ShouldReturnSortedResult() throws CricketLeagueAnalyserException {
       CricketLeagueAnalyser cricketLeagueAnalyser = new CricketLeagueAnalyser();
       cricketLeagueAnalyser.loadDataFromSheet(CricketLeagueAnalyser.CricketPlayer.BOWLER, CRICKET_WICKETS_CSV_FILE_PATH);
       String sortedcricketData = cricketLeagueAnalyser.getStrikeRateWith4wAnd5wSortedCricketData();
       IPLWicketsCSV[] iplWicketsCSV =  new Gson().fromJson(sortedcricketData, IPLWicketsCSV[].class);
       Assert.assertEquals("Lasith Malinga", iplWicketsCSV[0].playerName);
+   }
+
+   @Test
+   public void givenCricketData_WhenSortedOnBestStrikeRateWithBestBowlingAvgouldReturnSortedResult() throws CricketLeagueAnalyserException {
+      CricketLeagueAnalyser cricketLeagueAnalyser = new CricketLeagueAnalyser();
+      cricketLeagueAnalyser.loadDataFromSheet(CricketLeagueAnalyser.CricketPlayer.BOWLER, CRICKET_WICKETS_CSV_FILE_PATH);
+      String sortedcricketData = cricketLeagueAnalyser.getStrikeRateWithBowlingSortedCricketData();
+      IPLWicketsCSV[] iplWicketsCSV =  new Gson().fromJson(sortedcricketData, IPLWicketsCSV[].class);
+      Assert.assertEquals("Krishnappa Gowtham", iplWicketsCSV[0].playerName);
    }
 }
