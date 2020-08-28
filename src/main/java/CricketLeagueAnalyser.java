@@ -113,4 +113,13 @@ public class CricketLeagueAnalyser {
       this.sortData(IPLDAO, ecoRateComparator);
       return new Gson().toJson(IPLDAO);
    }
+
+   //Finds Best Strike Rate With 5 Wickets And 4 Wickets
+   public String getStrikeRateWith4wAnd5wSortedCricketData() {
+      Comparator<CricketDataDAO> bowlerStrikeRateCompare = Comparator.comparing(leagueFact -> leagueFact.strikeRate);
+      Comparator<CricketDataDAO> wicketCompare = Comparator.comparing(leagueFact -> leagueFact.fourWickets + leagueFact.fiveWickets);
+      List<CricketDataDAO> IPLDAO = cricketDatatMap.values().stream().collect(Collectors.toList());
+      this.sortData(IPLDAO, wicketCompare.thenComparing(bowlerStrikeRateCompare));
+      return new Gson().toJson(IPLDAO);
+   }
 }

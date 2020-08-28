@@ -14,6 +14,12 @@ public class IPLWicketsCSV {
    @CsvBindByName(column = "Econ", required = true)
    public double ecoRate;
 
+   @CsvBindByName(column = "4w", required = true)
+   public double fourWickets;
+
+   @CsvBindByName(column = "5w", required = true)
+   public double fiveWickets;
+
    @Override
    public String toString() {
       return "IPLWicketsCSV{" +
@@ -21,6 +27,8 @@ public class IPLWicketsCSV {
               ", Avg='" + bowlingPerformance + '\'' +
               ", SR='" + strikeRate + '\'' +
               ", Econ='" + ecoRate + '\'' +
+              ", 4w='" + fourWickets + '\'' +
+              ", 5w='" + fiveWickets + '\'' +
               '}';
    }
 }

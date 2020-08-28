@@ -124,4 +124,13 @@ public class CricketLeagueAnalyserTest {
       IPLWicketsCSV[] iplWicketsCSV =  new Gson().fromJson(sortedcricketData, IPLWicketsCSV[].class);
       Assert.assertEquals("Ben Cutting", iplWicketsCSV[0].playerName);
    }
+
+   @Test
+   public void givenMostRunFactSheet_WhenShortedOnBestStrikeRateWith4wAnd5w_ShouldReturnSortedResult() throws CricketLeagueAnalyserException {
+      CricketLeagueAnalyser cricketLeagueAnalyser = new CricketLeagueAnalyser();
+      cricketLeagueAnalyser.loadDataFromSheet(CricketLeagueAnalyser.CricketPlayer.BOWLER, CRICKET_WICKETS_CSV_FILE_PATH);
+      String sortedcricketData = cricketLeagueAnalyser.getStrikeRateWith4wAnd5wSortedCricketData();
+      IPLWicketsCSV[] iplWicketsCSV =  new Gson().fromJson(sortedcricketData, IPLWicketsCSV[].class);
+      Assert.assertEquals("Lasith Malinga", iplWicketsCSV[0].playerName);
+   }
 }
