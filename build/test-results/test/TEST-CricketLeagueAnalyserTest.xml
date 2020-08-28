@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CricketLeagueAnalyserTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-08-28T04:08:55" hostname="SUJITGARGATE" time="1.077">
+<testsuite name="CricketLeagueAnalyserTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-08-28T04:45:19" hostname="SUJITGARGATE" time="0.102">
   <properties/>
-  <testcase name="givenCricketData_WhenSortedOnBestStrikeRateWithBestBowlingAvgouldReturnSortedResult" classname="CricketLeagueAnalyserTest" time="1.077">
-    <failure message="org.junit.ComparisonFailure: expected:&lt;[Lasith Malinga]&gt; but was:&lt;[Krishnappa Gowtham]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[Lasith Malinga]&gt; but was:&lt;[Krishnappa Gowtham]&gt;
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at CricketLeagueAnalyserTest.givenCricketData_WhenSortedOnBestStrikeRateWithBestBowlingAvgouldReturnSortedResult(CricketLeagueAnalyserTest.java:143)
+  <testcase name="givenCricketData_WhenSortedOnHighestWicketsWithBestBowlingAvgSouldReturnSortedResult" classname="CricketLeagueAnalyserTest" time="0.102">
+    <failure message="java.lang.IllegalArgumentException: No enum constant CricketLeagueAnalyserException.ExceptionType.NOT_A_CSV_TYPE_OR_HEADERS_INVALID" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: No enum constant CricketLeagueAnalyserException.ExceptionType.NOT_A_CSV_TYPE_OR_HEADERS_INVALID
+	at java.base/java.lang.Enum.valueOf(Enum.java:264)
+	at CricketLeagueAnalyserException$ExceptionType.valueOf(CricketLeagueAnalyserException.java:4)
+	at CricketLeagueAnalyserException.&lt;init&gt;(CricketLeagueAnalyserException.java:12)
+	at IPLDataLoader.loadCricketData(IPLDataLoader.java:34)
+	at IPLDataLoader.leagueLoaderCricketData(IPLDataLoader.java:43)
+	at CricketLeagueAnalyser.loadDataFromSheet(CricketLeagueAnalyser.java:17)
+	at CricketLeagueAnalyserTest.givenCricketData_WhenSortedOnHighestWicketsWithBestBowlingAvgSouldReturnSortedResult(CricketLeagueAnalyserTest.java:149)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

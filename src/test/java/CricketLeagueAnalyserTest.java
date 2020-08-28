@@ -20,7 +20,7 @@ public class CricketLeagueAnalyserTest {
          String sortedcricketData = cricketLeagueAnalyser.getBattingAvgSortedData();
          IPLRunsCSV[] iplRunsCSV = new Gson().fromJson(sortedcricketData, IPLRunsCSV[].class);
          double playerAvg = 0;
-         for(int i = 0; i < iplRunsCSV.length; i ++){
+         for (int i = 0; i < iplRunsCSV.length; i++) {
             playerAvg += iplRunsCSV[i].avgRun;
          }
          Assert.assertEquals(2402.1, playerAvg, 0.2);
@@ -85,7 +85,7 @@ public class CricketLeagueAnalyserTest {
       CricketLeagueAnalyser cricketLeagueAnalyser = new CricketLeagueAnalyser();
       cricketLeagueAnalyser.loadDataFromSheet(CricketLeagueAnalyser.CricketPlayer.BATSMAN, CRICKET_CSV_FILE_PATH);
       String sortedcricketData = cricketLeagueAnalyser.getGoodAverageWithStrikeRateSortedCricketData();
-      IPLRunsCSV[] iplRunsCSV =  new Gson().fromJson(sortedcricketData, IPLRunsCSV[].class);
+      IPLRunsCSV[] iplRunsCSV = new Gson().fromJson(sortedcricketData, IPLRunsCSV[].class);
       Assert.assertEquals("Ishant Sharma", iplRunsCSV[0].playerName);
    }
 
@@ -103,7 +103,7 @@ public class CricketLeagueAnalyserTest {
       CricketLeagueAnalyser cricketLeagueAnalyser = new CricketLeagueAnalyser();
       cricketLeagueAnalyser.loadDataFromSheet(CricketLeagueAnalyser.CricketPlayer.BOWLER, CRICKET_WICKETS_CSV_FILE_PATH);
       String sortedcricketData = cricketLeagueAnalyser.getBowlingAverageSortedCricketData();
-      IPLWicketsCSV[] iplWicketsCSV =  new Gson().fromJson(sortedcricketData, IPLWicketsCSV[].class);
+      IPLWicketsCSV[] iplWicketsCSV = new Gson().fromJson(sortedcricketData, IPLWicketsCSV[].class);
       Assert.assertEquals("Umesh Yadav", iplWicketsCSV[0].playerName);
    }
 
@@ -112,7 +112,7 @@ public class CricketLeagueAnalyserTest {
       CricketLeagueAnalyser cricketLeagueAnalyser = new CricketLeagueAnalyser();
       cricketLeagueAnalyser.loadDataFromSheet(CricketLeagueAnalyser.CricketPlayer.BOWLER, CRICKET_WICKETS_CSV_FILE_PATH);
       String sortedcricketData = cricketLeagueAnalyser.getBowlerStrikeRateSortedCricketData();
-      IPLWicketsCSV[] iplWicketsCSV =  new Gson().fromJson(sortedcricketData, IPLWicketsCSV[].class);
+      IPLWicketsCSV[] iplWicketsCSV = new Gson().fromJson(sortedcricketData, IPLWicketsCSV[].class);
       Assert.assertEquals("Krishnappa Gowtham", iplWicketsCSV[0].playerName);
    }
 
@@ -121,7 +121,7 @@ public class CricketLeagueAnalyserTest {
       CricketLeagueAnalyser cricketLeagueAnalyser = new CricketLeagueAnalyser();
       cricketLeagueAnalyser.loadDataFromSheet(CricketLeagueAnalyser.CricketPlayer.BOWLER, CRICKET_WICKETS_CSV_FILE_PATH);
       String sortedcricketData = cricketLeagueAnalyser.getEconomyRateSortedCricketData();
-      IPLWicketsCSV[] iplWicketsCSV =  new Gson().fromJson(sortedcricketData, IPLWicketsCSV[].class);
+      IPLWicketsCSV[] iplWicketsCSV = new Gson().fromJson(sortedcricketData, IPLWicketsCSV[].class);
       Assert.assertEquals("Ben Cutting", iplWicketsCSV[0].playerName);
    }
 
@@ -130,16 +130,25 @@ public class CricketLeagueAnalyserTest {
       CricketLeagueAnalyser cricketLeagueAnalyser = new CricketLeagueAnalyser();
       cricketLeagueAnalyser.loadDataFromSheet(CricketLeagueAnalyser.CricketPlayer.BOWLER, CRICKET_WICKETS_CSV_FILE_PATH);
       String sortedcricketData = cricketLeagueAnalyser.getStrikeRateWith4wAnd5wSortedCricketData();
-      IPLWicketsCSV[] iplWicketsCSV =  new Gson().fromJson(sortedcricketData, IPLWicketsCSV[].class);
+      IPLWicketsCSV[] iplWicketsCSV = new Gson().fromJson(sortedcricketData, IPLWicketsCSV[].class);
       Assert.assertEquals("Lasith Malinga", iplWicketsCSV[0].playerName);
    }
 
    @Test
-   public void givenCricketData_WhenSortedOnBestStrikeRateWithBestBowlingAvgouldReturnSortedResult() throws CricketLeagueAnalyserException {
+   public void givenCricketData_WhenSortedOnBestStrikeRateWithBestBowlingAvgSouldReturnSortedResult() throws CricketLeagueAnalyserException {
       CricketLeagueAnalyser cricketLeagueAnalyser = new CricketLeagueAnalyser();
       cricketLeagueAnalyser.loadDataFromSheet(CricketLeagueAnalyser.CricketPlayer.BOWLER, CRICKET_WICKETS_CSV_FILE_PATH);
       String sortedcricketData = cricketLeagueAnalyser.getStrikeRateWithBowlingSortedCricketData();
-      IPLWicketsCSV[] iplWicketsCSV =  new Gson().fromJson(sortedcricketData, IPLWicketsCSV[].class);
+      IPLWicketsCSV[] iplWicketsCSV = new Gson().fromJson(sortedcricketData, IPLWicketsCSV[].class);
       Assert.assertEquals("Krishnappa Gowtham", iplWicketsCSV[0].playerName);
+   }
+
+   @Test
+   public void givenCricketData_WhenSortedOnHighestWicketsWithBestBowlingAvgSouldReturnSortedResult() throws CricketLeagueAnalyserException {
+      CricketLeagueAnalyser cricketLeagueAnalyser = new CricketLeagueAnalyser();
+      cricketLeagueAnalyser.loadDataFromSheet(CricketLeagueAnalyser.CricketPlayer.BOWLER, CRICKET_CSV_FILE_PATH);
+      String sortedFactSheetData = cricketLeagueAnalyser.getBowlingAverageWithMaxWicketSortedCricketData();
+      IPLWicketsCSV[] iplWicketsCSV = new Gson().fromJson(sortedFactSheetData, IPLWicketsCSV[].class);
+      Assert.assertEquals("Imran Tahir", iplWicketsCSV[0].playerName);
    }
 }

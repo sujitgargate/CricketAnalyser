@@ -10,8 +10,9 @@ public class CricketDataDAO {
    public double playerRuns;
    public double bowlingPerformance;
    public double ecoRate;
-   public double fourWickets;
-   public double fiveWickets;
+   public int fourWickets;
+   public int fiveWickets;
+   public double wickets;
 
    public CricketDataDAO(IPLRunsCSV iplRunsCSV) {
       playerName = iplRunsCSV.playerName;
@@ -29,6 +30,6 @@ public class CricketDataDAO {
       ecoRate = iplWicketsCSV.ecoRate;
       fourWickets = iplWicketsCSV.fourWickets;
       fiveWickets = iplWicketsCSV.fiveWickets;
-
+      wickets = iplWicketsCSV.wickets;
    }
 }

@@ -131,4 +131,12 @@ public class CricketLeagueAnalyser {
       this.sortData(IPLDAO, wicketCompare.thenComparing(bowlerStrikeRateCompare));
       return new Gson().toJson(IPLDAO);
    }
+
+   public String getBowlingAverageWithMaxWicketSortedCricketData() {
+      Comparator<CricketDataDAO> bowlingWicketsComparae = Comparator.comparing(leagueFact -> leagueFact.wickets);
+      Comparator<CricketDataDAO> bowlerAvgRunsCompare = Comparator.comparing(leagueFact -> leagueFact.bowlingPerformance);
+      List<CricketDataDAO> IPLDAO = cricketDatatMap.values().stream().collect(Collectors.toList());
+      this.sortData(IPLDAO, bowlingWicketsComparae.thenComparing(bowlerAvgRunsCompare));
+      return new Gson().toJson(IPLDAO);
+   }
 }

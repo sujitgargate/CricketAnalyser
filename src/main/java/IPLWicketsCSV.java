@@ -15,10 +15,13 @@ public class IPLWicketsCSV {
    public double ecoRate;
 
    @CsvBindByName(column = "4w", required = true)
-   public double fourWickets;
+   public int fourWickets;
 
    @CsvBindByName(column = "5w", required = true)
-   public double fiveWickets;
+   public int fiveWickets;
+
+   @CsvBindByName(column = "Wkts", required = true)
+   public double wickets;
 
    @Override
    public String toString() {
@@ -29,6 +32,7 @@ public class IPLWicketsCSV {
               ", Econ='" + ecoRate + '\'' +
               ", 4w='" + fourWickets + '\'' +
               ", 5w='" + fiveWickets + '\'' +
+              ", Wkts='" + wickets + '\'' +
               '}';
    }
 }
