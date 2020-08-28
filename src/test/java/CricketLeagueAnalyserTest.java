@@ -115,4 +115,13 @@ public class CricketLeagueAnalyserTest {
       IPLWicketsCSV[] iplWicketsCSV =  new Gson().fromJson(sortedcricketData, IPLWicketsCSV[].class);
       Assert.assertEquals("Krishnappa Gowtham", iplWicketsCSV[0].playerName);
    }
+
+   @Test
+   public void givenMostRunFactSheet_WhenShortedOnBestEconomyRate_ShouldReturnSortedResult() throws CricketLeagueAnalyserException {
+      CricketLeagueAnalyser cricketLeagueAnalyser = new CricketLeagueAnalyser();
+      cricketLeagueAnalyser.loadDataFromSheet(CricketLeagueAnalyser.CricketPlayer.BOWLER, CRICKET_WICKETS_CSV_FILE_PATH);
+      String sortedcricketData = cricketLeagueAnalyser.getEconomyRateSortedCricketData();
+      IPLWicketsCSV[] iplWicketsCSV =  new Gson().fromJson(sortedcricketData, IPLWicketsCSV[].class);
+      Assert.assertEquals("Ben Cutting", iplWicketsCSV[0].playerName);
+   }
 }

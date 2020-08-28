@@ -1,18 +1,8 @@
 import com.google.gson.Gson;
-import csvbuilder.CSVBuilderException;
-import csvbuilder.CSVBuilderFactory;
-import csvbuilder.ICSVBuilder;
-
-import java.io.IOException;
-import java.io.Reader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
+import java.util.stream.Collectors;;
 
 public class CricketLeagueAnalyser {
 
@@ -108,12 +98,19 @@ public class CricketLeagueAnalyser {
       return new Gson().toJson(IPLDAO);
    }
 
+   //Finds Best Bowler By Strike Rate
    public String getBowlerStrikeRateSortedCricketData() {
       Comparator<CricketDataDAO> bowlerStrikeRateCompare = Comparator.comparing(leagueFact -> leagueFact.strikeRate);
-      List<CricketDataDAO> factSheetDAO = cricketDatatMap.values().stream()
-              .collect(Collectors.toList());
-      this.sortData(factSheetDAO, bowlerStrikeRateCompare);
-      return new Gson().toJson(factSheetDAO);
+      List<CricketDataDAO> IPLDAO = cricketDatatMap.values().stream().collect(Collectors.toList());
+      this.sortData(IPLDAO, bowlerStrikeRateCompare);
+      return new Gson().toJson(IPLDAO);
    }
 
+   //Finds Best Economy Rate For Bowler
+   public String getEconomyRateSortedCricketData() {
+      Comparator<CricketDataDAO> ecoRateComparator = Comparator.comparing(leagueFact -> leagueFact.ecoRate);
+      List<CricketDataDAO> IPLDAO = cricketDatatMap.values().stream().collect(Collectors.toList());
+      this.sortData(IPLDAO, ecoRateComparator);
+      return new Gson().toJson(IPLDAO);
+   }
 }
