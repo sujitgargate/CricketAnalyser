@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CricketLeagueAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-08-28T03:25:33" hostname="SUJITGARGATE" time="0.848">
+<testsuite name="CricketLeagueAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-08-28T03:35:12" hostname="SUJITGARGATE" time="1.106">
   <properties/>
-  <testcase name="givenMostRunFactSheet_WhenShortedOnBestBowlingAverage_ShouldReturnSortedResult" classname="CricketLeagueAnalyserTest" time="0.848"/>
+  <testcase name="givenMostRunFactSheet_WhenShortedOnBestBowlerStrikeRate_ShouldReturnSortedResult" classname="CricketLeagueAnalyserTest" time="1.106"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -22,5 +22,6 @@ public class CricketDataDAO {
    public CricketDataDAO(IPLWicketsCSV iplWicketsCSV) {
       playerName = iplWicketsCSV.playerName;
       bowlingPerformance = iplWicketsCSV.bowlingPerformance;
+      strikeRate = iplWicketsCSV.strikeRate;
    }
 }

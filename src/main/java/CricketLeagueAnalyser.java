@@ -103,10 +103,17 @@ public class CricketLeagueAnalyser {
    //Finds Best Bowler By Average Runs
    public String getBowlingAverageSortedCricketData() {
       Comparator<CricketDataDAO> bowlingCompare = Comparator.comparing(leagueFact -> leagueFact.avgRun);
-      List<CricketDataDAO> IPLDAO = cricketDatatMap.values().stream()
-              .collect(Collectors.toList());
+      List<CricketDataDAO> IPLDAO = cricketDatatMap.values().stream().collect(Collectors.toList());
       this.sortData(IPLDAO, bowlingCompare);
-      String sortedFactSheetJson = new Gson().toJson(IPLDAO);
-      return sortedFactSheetJson;
+      return new Gson().toJson(IPLDAO);
    }
+
+   public String getBowlerStrikeRateSortedCricketData() {
+      Comparator<CricketDataDAO> bowlerStrikeRateCompare = Comparator.comparing(leagueFact -> leagueFact.strikeRate);
+      List<CricketDataDAO> factSheetDAO = cricketDatatMap.values().stream()
+              .collect(Collectors.toList());
+      this.sortData(factSheetDAO, bowlerStrikeRateCompare);
+      return new Gson().toJson(factSheetDAO);
+   }
+
 }
