@@ -149,6 +149,6 @@ public class CricketLeagueAnalyserTest {
       cricketLeagueAnalyser.loadDataFromSheet(CricketLeagueAnalyser.CricketPlayer.BOWLER, CRICKET_CSV_FILE_PATH);
       String sortedFactSheetData = cricketLeagueAnalyser.getBowlingAverageWithMaxWicketSortedCricketData();
       IPLWicketsCSV[] iplWicketsCSV = new Gson().fromJson(sortedFactSheetData, IPLWicketsCSV[].class);
-      Assert.assertEquals("Imran Tahir", iplWicketsCSV[0].playerName);
+      Assert.assertEquals("Krishnappa Gowtham", iplWicketsCSV[0].playerName);
    }
 }
