@@ -25,13 +25,14 @@ public class IPLDataLoader {
             StreamSupport.stream(csvIterable.spliterator(), false).map(IPLRunsCSV.class::cast)
                          .forEach(censusCSV -> censusStateMap.put(censusCSV.playerName, new CricketDataDAO(censusCSV)));
          } else if(IPLRunsCSVClass.getName().equals("IPLWicketsCSV"))
+            StreamSupport.stream(csvIterable.spliterator(), false).map(IPLWicketsCSV.class::cast)
+                    .forEach(censusCSV -> censusStateMap.put(censusCSV.playerName, new CricketDataDAO(censusCSV)));
          return censusStateMap;
       } catch (IOException e) {
          throw new CricketLeagueAnalyserException(e.getMessage(),CricketLeagueAnalyserException.ExceptionType.CSV_FILE_PROBLEM);
       } catch (CSVBuilderException e) {
          throw new CricketLeagueAnalyserException(e.getMessage(), e.type.name());
       }
-      return censusStateMap;
    }
 
    //Chooses Between Batsman or Bowler
@@ -40,7 +41,6 @@ public class IPLDataLoader {
          return this.loadCricketData(IPLRunsCSV.class, csvFilePath);
       } else if (cricketPlayer.equals(CricketLeagueAnalyser.CricketPlayer.BOWLER)) {
          return this.loadCricketData(IPLWicketsCSV.class, csvFilePath);
-      } else throw new CricketLeagueAnalyserException("Incorrect Player Type",
-              CricketLeagueAnalyserException.ExceptionType.PlAYER_NOT_FOUND);
+      } else throw new CricketLeagueAnalyserException("Incorrect Player Type", CricketLeagueAnalyserException.ExceptionType.PlAYER_NOT_FOUND);
    }
 }

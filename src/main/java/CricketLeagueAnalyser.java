@@ -99,4 +99,14 @@ public class CricketLeagueAnalyser {
       this.sortData(IPLDAO, runsCompare.thenComparing(avgCompare));
       return new Gson().toJson(IPLDAO);
    }
+
+   //Finds Best Bowler By Average Runs
+   public String getBowlingAverageSortedCricketData() {
+      Comparator<CricketDataDAO> bowlingCompare = Comparator.comparing(leagueFact -> leagueFact.avgRun);
+      List<CricketDataDAO> IPLDAO = cricketDatatMap.values().stream()
+              .collect(Collectors.toList());
+      this.sortData(IPLDAO, bowlingCompare);
+      String sortedFactSheetJson = new Gson().toJson(IPLDAO);
+      return sortedFactSheetJson;
+   }
 }
